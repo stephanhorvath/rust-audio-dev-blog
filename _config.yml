@@ -1,2 +1,6 @@
-name: Decibels & Rust
+title: "Decibels & Rust"
+description: "Exploring Rust for Audio Development"
 theme: minima
+author: stephanhorvath
+email: stephan.dev@pm.me
+url: "https://stephanhorvath.github.io/rust-audio-dev-blog"
