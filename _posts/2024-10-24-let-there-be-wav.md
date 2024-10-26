@@ -182,3 +182,18 @@ written and returning the Some(writer).
 With the Some(writer), the second `.unwrap()` ensures that there is a valid 
 WavWriter before calling `.finalize()`, which writes the remaining buffered 
 data to the file, and closes it.
+
+# Reflections
+
+In this first step of building my first audio application in Rust, I’ve learned several things I'd like to highlight:
+
+- **Understanding `cpal`**: I learned how to initialise a host, and configure audio input devices in order to record microphone input.
+- **Error Handling in Rust**: I experimented with different ways to handle errors, learning the importance of robust error management in Rust applications.
+- **Concurrency and Ownership**: I learned a bit more about how Rust’s ownership model works in concurrent programming, especially regarding the use of `Arc` and `Mutex` to safely share resources between threads.
+- **WAV File Format**: Understanding the structure of WAV files and how to write them programmatically with `hound`.
+
+# What’s Next?
+
+Now that I’ve got the basic recording down, here’s what I want to tackle next:
+
+- **Continuous Recording**: I want to make it so the recording can run until I decide to stop it. This means tweaking the input stream to keep it alive and listen for a stop command.
