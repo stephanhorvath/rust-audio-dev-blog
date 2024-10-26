@@ -183,6 +183,39 @@ With the Some(writer), the second `.unwrap()` ensures that there is a valid
 WavWriter before calling `.finalize()`, which writes the remaining buffered 
 data to the file, and closes it.
 
+### Writing the Data to WAV
+
+The `write_input_data` function takes in a slice, and a writer. The slice is
+important as it can just process the data sample by sample without needing to
+copy the entire data structure. It alsoa voids creating copies, which would be
+less efficient. This slice is also a generic, allowing the function to work with
+different sample formats.
+
+The function uses the `if let` construct to attempt to acquire a lock on the
+writer, so that data can be safely written in the multithred environment. If the
+lock is successfully acquired, it provides a mutable reference to the writer.
+
+The function then iterates through each sample in the input slice, which in this case
+it's a single sample for a single channel. It's converted to the output type
+specified in the data callback, and then written to the file by the writer.
+
+```
+fn write_input_data<T, U>(input: &[T], writer: &WavWriterHandle)
+where
+    T: Sample,
+    U: Sample + hound::Sample + FromSample<T>,
+{
+    if let Ok(mut guard) = writer.try_lock() {
+        if let Some(writer) = guard.as_mut() {
+            for &sample in input.iter() {
+                let sample: U = U::from_sample(sample);
+                writer.write_sample(sample).ok();
+            }
+        }
+    }
+}
+```
+
 # Reflections
 
 In this first step of building my first audio application in Rust, I’ve learned several things I'd like to highlight:
