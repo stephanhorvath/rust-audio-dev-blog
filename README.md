@@ -1,5 +1,3 @@
-# Decibels & Rust
-
 **Decibels & Rust** is a blog documenting my experiences into audio development
 using the Rust programming language. Follow along as I explore real-time audio
 processing, digital signal processing, and more.
