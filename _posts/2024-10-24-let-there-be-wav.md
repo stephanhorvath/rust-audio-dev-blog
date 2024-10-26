@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Let There Be Wav"
+title: "Let There Be WAV"
 date: 2024-10-24
 categories: rust audio dsp
 ---
