@@ -1,6 +1,13 @@
 title: "Decibels & Rust"
 description: "Exploring Rust for Audio Development"
 theme: minima
+minima:
+  skin: dark
 author: stephanhorvath
 email: stephan.dev@pm.me
 url: "https://stephanhorvath.github.io/rust-audio-dev-blog"
+header_pages:
+  - about.md
+
+minima:
+  date_format: "%Y-%m-%d"
