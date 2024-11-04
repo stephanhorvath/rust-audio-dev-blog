@@ -2,7 +2,7 @@
 layout: post
 title: "Smooth Operator"
 date: 2024-11-04
-categories: filters
+categories: dsp filters
 ---
 
 # On Filters
