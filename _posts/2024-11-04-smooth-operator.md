@@ -24,7 +24,7 @@ be indistinguishable from zero. This is because as the output values get smaller
 and smaller, reaching the smallest possible number the system can represent,
 rounding errors will result in zeros.
 
-## The Simplest FIR Low-pass Filter
+## The Fundamental FIR Low-pass Filter
 
 A low-pass filter cancels out high frequencies, letting the low frequencies pass
 through the filter unaffected. One example of full cancellation is taking a
@@ -171,7 +171,7 @@ understanding of how digital filtering works, especially the way FIRs rely on
 previous inputs and IIRs introduce feedback from prior outputs. This distinction
 helped me see the unique behavior and use cases for each type of filter.
 
-**Rust’s Iterator Power:** By using chained iterators like .zip() and .map(), I was
+**Rust’s Iterator Power:** By using chained iterators like `.zip()` and `.map()`, I was
 able to streamline the filter’s sample processing, making it both concise and
 readable. Rust’s iterator tools are powerful for cleanly expressing operations
 like coefficient-sample multiplication, and it’s exciting to see how expressive
